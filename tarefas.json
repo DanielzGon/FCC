@@ -2,28 +2,10 @@
   {
     "id": 1,
     "titulo": "estudar",
-    "descricao": "hoje",
+    "descricao": "Fisica capitulo 2",
     "concluida": false,
-    "criadaEm": "2026-11-10T22:57:19.419Z",
-    "tempoMinutos": 12,
-    "tempoRestanteSegundos": 720
-  },
-  {
-    "id": 2,
-    "titulo": "Estudar Rust",
-    "descricao": "Ler o capitulo 3 do livro",
-    "concluida": false,
-    "criadaEm": "2026-11-10T22:57:21.516Z",
-    "tempoMinutos": 10,
-    "tempoRestanteSegundos": 600
-  },
-  {
-    "id": 3,
-    "titulo": "Estudar Rust",
-    "descricao": "Ler o capitulo 3 do livro sobre ownership e borrowing",
-    "concluida": false,
-    "criadaEm": "2026-11-10T23:03:42.702Z",
-    "tempoMinutos": 10,
-    "tempoRestanteSegundos": 600
+    "criadaEm": "2026-11-10T23:07:37.392Z",
+    "tempoMinutos": 30,
+    "tempoRestanteSegundos": 1800
   }
 ]
