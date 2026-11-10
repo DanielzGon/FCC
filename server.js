@@ -96,9 +96,10 @@ const servidor = http.createServer(async (req, res) => {
 });
 
 if (process.argv[1] === __filename || require.main === module) {
-  servidor.listen(PORTA, () => {
+  servidor.listen(PORTA, '127.0.0.1', () => {
     const endereco = servidor.address();
-    console.log(`Servidor rodando na porta ${endereco.port}`);
+    const caminho = `http://${endereco.address}:${endereco.port}`;
+    console.log(`Servidor rodando em ${caminho}`);
   });
 }
 
