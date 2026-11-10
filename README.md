@@ -1,17 +1,29 @@
-# API de Tarefas (Node.js, sem dependencias externas)
+# Lista de Tarefas (Node.js, sem dependencias externas)
 
-API REST mínima criada apenas com módulos nativos do Node.js (`http`, `fs`, `node:test`).
+API REST mínima criada apenas com módulos nativos do Node.js (`http`, `fs`). A interface web (HTML/CSS/JS) é servida pelo próprio servidor a partir da pasta `/public`.
 
-## Endpoints
+## Estrutura
+
+```
+tarefas/
+├─ server.js          # Servidor HTTP + roteamento da API e arquivos estáticos
+├─ store.js           # Leitura/gravacao atomica de tarefas.json
+├─ tarefas.json       # Banco de dados em arquivo JSON
+├─ public/
+│  ├─ index.html      # Interface web
+│  ├─ style.css       # Estilos
+│  └─ app.js          # Logica do frontend (fetch para a API)
+└─ README.md
+```
+
+## Endpoints da API
 
 | Método | Caminho | Descrição |
 |--------|---------|-----------|
-| GET | `/tarefas` | Lista todas as tarefas |
-| POST | `/tarefas` | Cria uma tarefa (body: `{ "titulo": "..." }`) |
-| PATCH | `/tarefas/:id` | Marca uma tarefa como concluída |
-| DELETE | `/tarefas/:id` | Remove uma tarefa |
-
-Os dados são salvos em `tarefas.json`.
+| GET | `/api/tarefas` | Lista todas as tarefas |
+| POST | `/api/tarefas` | Cria uma tarefa (body: `{ "titulo": "..." }`) |
+| PATCH | `/api/tarefas/:id` | Marca uma tarefa como concluída |
+| DELETE | `/api/tarefas/:id` | Remove uma tarefa |
 
 ## Como rodar
 
@@ -19,7 +31,9 @@ Os dados são salvos em `tarefas.json`.
 node server.js
 ```
 
-O servidor escuta na porta definida por `PORT` ou em uma porta aleatória se não informada.
+O servidor escuta em `http://127.0.0.1:PORT` (usa a variavel `PORT` ou a porta 3000 por padrão).
+
+Abra `http://127.0.0.1:3000` no navegador para usar a interface web.
 
 ## Como testar
 
@@ -27,7 +41,7 @@ O servidor escuta na porta definida por `PORT` ou em uma porta aleatória se nã
 node --test
 ```
 
-Todos os testes usam `node:test` + `node:assert` e cobrem os quatro endpoints (casos de sucesso e erro).
+Todos os testes usam `node:test` + `node:assert` e cobrem os quatro endpoints da API (casos de sucesso e erro).
 
 ## Requisitos
 

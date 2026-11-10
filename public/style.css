@@ -1,0 +1,272 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  color: #0f172a;
+  margin: 0;
+  padding: 2rem 1rem;
+}
+
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #0f172a;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding: 1.25rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.input-linha {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+input[type="text"],
+input[type="number"] {
+  flex: 1;
+  min-width: 120px;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.95rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.65rem;
+  outline: none;
+  background: #fafbfc;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  background: #ffffff;
+}
+
+button {
+  padding: 0.65rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  background: #2563eb;
+  border: none;
+  border-radius: 0.65rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button.secondary {
+  background: #94a3b8;
+}
+
+button.secondary:hover {
+  background: #64748b;
+}
+
+.tarefas-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.tarefa-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.9rem;
+  padding: 1rem 1.1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.tarefa-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.08);
+  border-color: #cbd5e1;
+}
+
+.tarefa-card.concluida {
+  opacity: 0.65;
+  border-color: #e2e8f0;
+  background: #f8fafc;
+}
+
+.tarefa-topo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.6rem;
+}
+
+input[type="checkbox"] {
+  width: 1.15rem;
+  height: 1.15rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  accent-color: #2563eb;
+}
+
+.tarefa-titulo {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0;
+  flex: 1;
+  color: #0f172a;
+}
+
+.tarefa-card.concluida .tarefa-titulo {
+  text-decoration: line-through;
+  color: #94a3b8;
+}
+
+.tarefa-botoes-topo {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tarefa-corpo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.descricao-resumo {
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.45;
+  max-height: 2.2em;
+  overflow: hidden;
+  position: relative;
+}
+
+.descricao-resumo.expandida {
+  max-height: none;
+}
+
+.btn-expandir {
+  font-size: 0.78rem;
+  padding: 0.2rem 0.55rem;
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.45rem;
+  cursor: pointer;
+  align-self: flex-start;
+  margin-top: -0.2rem;
+}
+
+.btn-expandir:hover {
+  background: #e2e8f0;
+  border-color: #94a3b8;
+}
+
+.tarefa-tempo {
+  margin-top: 0.25rem;
+  font-size: 0.82rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: #2563eb;
+  font-weight: 600;
+  padding: 0.35rem 0.6rem;
+  background: #eff6ff;
+  border-radius: 0.5rem;
+  display: inline-block;
+}
+
+.tarefa-card.concluida .tarefa-tempo {
+  color: #94a3b8;
+  background: #f1f5f9;
+}
+
+.btn-editar {
+  background: #2563eb;
+  font-size: 0.82rem;
+  padding: 0.3rem 0.7rem;
+}
+
+.btn-editar:hover {
+  background: #1d4ed8;
+}
+
+.btn-excluir {
+  background: #ef4444;
+  font-size: 0.82rem;
+  padding: 0.3rem 0.7rem;
+}
+
+.btn-excluir:hover {
+  background: #dc2626;
+}
+
+dialog {
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  max-width: 420px;
+  background: #ffffff;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+}
+
+dialog::backdrop {
+  background: rgba(15, 23, 42, 0.35);
+  backdrop-filter: blur(2px);
+}
+
+.modal-conteudo h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #0f172a;
+}
+
+label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  margin: 0.5rem 0 0.25rem;
+  color: #475569;
+  text-transform: uppercase;
+}
+
+.modal-botoes {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  justify-content: flex-end;
+}
+
+.modal-botoes button {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}

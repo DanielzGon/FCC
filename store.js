@@ -33,17 +33,37 @@ function listarTarefas() {
   return lerTarefas();
 }
 
-function criarTarefa(titulo) {
+function criarTarefa(titulo, tempoMinutos, descricao) {
   const tarefas = lerTarefas();
   const tarefa = {
     id: proximoId(tarefas),
     titulo: String(titulo),
+    descricao: descricao ? String(descricao) : '',
     concluida: false,
-    criadaEm: new Date().toISOString()
+    criadaEm: new Date().toISOString(),
+    tempoMinutos: tempoMinutos ? Number(tempoMinutos) : null,
+    tempoRestanteSegundos: tempoMinutos ? Math.floor(Number(tempoMinutos) * 60) : null
   };
   tarefas.push(tarefa);
   gravarTarefas(tarefas);
   return tarefa;
+}
+
+function editarTarefa(id, campos) {
+  const tarefas = lerTarefas();
+  const indice = tarefas.findIndex(t => Number(t.id) === Number(id));
+  if (indice === -1) return null;
+  if (campos.titulo !== undefined) tarefas[indice].titulo = String(campos.titulo);
+  if (campos.descricao !== undefined) tarefas[indice].descricao = String(campos.descricao);
+  if (campos.tempoMinutos !== undefined) {
+    const tempo = campos.tempoMinutos === null || campos.tempoMinutos === '' || campos.tempoMinutos === undefined
+      ? null
+      : Number(campos.tempoMinutos);
+    tarefas[indice].tempoMinutos = tempo;
+    tarefas[indice].tempoRestanteSegundos = tempo ? Math.floor(tempo * 60) : null;
+  }
+  gravarTarefas(tarefas);
+  return tarefas[indice];
 }
 
 function concluirTarefa(id) {
@@ -67,6 +87,7 @@ function deletarTarefa(id) {
 module.exports = {
   listarTarefas,
   criarTarefa,
+  editarTarefa,
   concluirTarefa,
   deletarTarefa,
   DATA_FILE
