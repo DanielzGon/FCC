@@ -9,6 +9,9 @@ const fs = require('fs');
 
 const HOST = 'http://127.0.0.1';
 
+// Inicia o servidor em uma porta aleatória antes dos testes
+servidor.listen(0, '127.0.0.1');
+
 function requisicao(method, caminho, corpo) {
   return new Promise((resolve, reject) => {
     const url = new URL(caminho, HOST);
